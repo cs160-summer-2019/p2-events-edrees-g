@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="createCircle();">
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
@@ -41,6 +41,37 @@
 <script type="text/javascript">
 
 	// your solution here
+  $(document).ready(() => {
+    let $stopButton = $('.btn');
+    
+//     var intervalID;
+//     function createCircle() {
+//       intervalID = setInterval(generateCircle, 30);
+//     }
+    
+//     function generateCircle() {
+//       $(".shape-container").append("<div class='p2-circle bg-blue'></div>");
+//     }
+    
+//     $stopButton.on('click', myCallback() => {
+//       window.clearInterval(intervalID);
+//     })
+    
+    $(function() {
+      var stop = false;
+      setInterval(function() {
+        if (!stop) {
+          $(".shape-container").append("<div class='p2-circle bg-blue'></div>");
+        }
+      }, 1000);
+      $stopButton.on('click', () => {
+        stop = true;
+      })
+    });
+    
+  });
+  
+  
 
 </script>
 </body>
